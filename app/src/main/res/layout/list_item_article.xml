@@ -1,58 +1,49 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/card_margin"
-    android:layout_marginLeft="@dimen/card_margin"
-    android:layout_marginRight="@dimen/card_margin"
-    android:clickable="true"
+    android:layout_margin="@dimen/card_margin"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardCornerRadius="@dimen/card_corner_radius"
-    app:cardElevation="@dimen/card_elevation">
+    app:cardElevation="@dimen/card_elevation"
+    app:cardUseCompatPadding="true"
+    >
 
-    <android.support.constraint.ConstraintLayout
-        style="@style/Widget.CardContent"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <!--suppress AndroidLintContentDescription -->
         <com.example.xyzreader.ui.DynamicHeightNetworkImageView
             android:id="@+id/thumbnail"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="H,16:9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"/>
 
         <TextView
             android:id="@+id/article_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/card_title_padding_bottom"
-            android:paddingLeft="@dimen/card_title_padding_side"
-            android:paddingRight="@dimen/card_title_padding_side"
-            android:paddingTop="@dimen/card_title_padding_top"
-            android:textColor="@color/primary_text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/thumbnail" />
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="@dimen/card_title_padding"
+            android:textSize="@dimen/card_title_text_size"
+            android:textColor="@color/text" />
 
         <TextView
             android:id="@+id/article_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/card_subtitle_padding_bottom"
-            android:paddingLeft="@dimen/card_title_padding_side"
-            android:paddingRight="@dimen/card_title_padding_side"
-            android:textColor="@color/secondary_text"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingBottom="@dimen/card_title_padding"
+            android:paddingLeft="@dimen/card_title_padding"
+            android:paddingRight="@dimen/card_title_padding"
             android:textSize="@dimen/card_subtitle_text_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/article_title" />
-    </android.support.constraint.ConstraintLayout>
+            android:textColor="@color/text" />
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>
